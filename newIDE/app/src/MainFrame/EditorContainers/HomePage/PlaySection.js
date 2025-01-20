@@ -20,14 +20,14 @@ const PlaySection = () => {
   const paletteType = gdevelopTheme.palette.type;
   const [iframeHeight, setIframeHeight] = React.useState(null);
 
-  window.addEventListener('message', event => {
-    if (
-      event.origin === 'https://gd.games' &&
-      event.data.id === 'set-embedded-height'
-    ) {
-      setIframeHeight(event.data.height);
-    }
-  });
+  // window.addEventListener('message', event => {
+  //   if (
+  //     event.origin === 'https://gd.games' &&
+  //     event.data.id === 'set-embedded-height'
+  //   ) {
+  //     setIframeHeight(event.data.height);
+  //   }
+  // });
 
   return (
     <SectionContainer flexBody>
@@ -35,12 +35,12 @@ const PlaySection = () => {
         <ColumnStackLayout noMargin>
           <PromotionsSlideshow />
           <AnnouncementsFeed canClose={false} level="normal" />
-          <iframe
+          {/* <iframe
             src={`https://gd.games/embedded/${paletteType}`}
             title="gdgames"
             style={{ ...styles.iframe, height: iframeHeight }}
             scrolling="no" // This is deprecated, but this is the only way to disable the scrollbar.
-          />
+          /> */}
           {!iframeHeight && <PlaceHolderLoader />}
         </ColumnStackLayout>
       </SectionRow>

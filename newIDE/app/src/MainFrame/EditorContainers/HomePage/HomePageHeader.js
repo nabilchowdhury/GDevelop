@@ -38,79 +38,81 @@ export const HomePageHeader = ({
   onSave,
   canSave,
 }: Props) => {
-  const { isMobile } = useResponsiveWindowSize();
-  const { profile } = React.useContext(AuthenticatedUserContext);
+  // const { isMobile } = useResponsiveWindowSize();
+  // const { profile } = React.useContext(AuthenticatedUserContext);
 
-  return (
-    <I18n>
-      {({ i18n }) => (
-        <LineStackLayout
-          justifyContent="space-between"
-          alignItems="center"
-          noMargin
-          expand
-        >
-          <Column noMargin>
-            <Line noMargin>
-              {!!hasProject && (
-                <>
-                  <IconButton
-                    size="small"
-                    id="main-toolbar-history-button"
-                    onClick={onOpenVersionHistory}
-                    tooltip={t`Open version history`}
-                    color="default"
-                  >
-                    <HistoryIcon />
-                  </IconButton>
-                  <SaveProjectIcon
-                    id="main-toolbar-save-button"
-                    onSave={onSave}
-                    canSave={canSave}
-                  />
-                </>
-              )}
-            </Line>
-          </Column>
-          <Column>
-            <LineStackLayout noMargin alignItems="center">
-              {!electron &&
-                !isNativeMobileApp() &&
-                (isMobile ? (
-                  <IconButton
-                    size="small"
-                    onClick={() =>
-                      Window.openExternalURL('https://gdevelop.io/download')
-                    }
-                  >
-                    <Mobile />
-                  </IconButton>
-                ) : (
-                  <FlatButton
-                    label={<Trans>Get the app</Trans>}
-                    onClick={() =>
-                      Window.openExternalURL('https://gdevelop.io/download')
-                    }
-                    leftIcon={<Desktop />}
-                  />
-                ))}
-              <UserChip onOpenProfile={onOpenProfile} />
-              {profile && <NotificationChip />}
-              {isMobile ? (
-                <IconButton size="small" onClick={onOpenLanguageDialog}>
-                  <TranslateIcon fontSize="small" />
-                </IconButton>
-              ) : (
-                <TextButton
-                  label={i18n.language.toUpperCase()}
-                  onClick={onOpenLanguageDialog}
-                  icon={<TranslateIcon fontSize="small" />}
-                />
-              )}
-            </LineStackLayout>
-          </Column>
-        </LineStackLayout>
-      )}
-    </I18n>
-  );
+  return <></>
+
+  // return (
+  //   <I18n>
+  //     {({ i18n }) => (
+  //       <LineStackLayout
+  //         justifyContent="space-between"
+  //         alignItems="center"
+  //         noMargin
+  //         expand
+  //       >
+  //         <Column noMargin>
+  //           <Line noMargin>
+  //             {!!hasProject && (
+  //               <>
+  //                 <IconButton
+  //                   size="small"
+  //                   id="main-toolbar-history-button"
+  //                   onClick={onOpenVersionHistory}
+  //                   tooltip={t`Open version history`}
+  //                   color="default"
+  //                 >
+  //                   <HistoryIcon />
+  //                 </IconButton>
+  //                 <SaveProjectIcon
+  //                   id="main-toolbar-save-button"
+  //                   onSave={onSave}
+  //                   canSave={canSave}
+  //                 />
+  //               </>
+  //             )}
+  //           </Line>
+  //         </Column>
+  //         <Column>
+  //           <LineStackLayout noMargin alignItems="center">
+  //             {!electron &&
+  //               !isNativeMobileApp() &&
+  //               (isMobile ? (
+  //                 <IconButton
+  //                   size="small"
+  //                   onClick={() =>
+  //                     Window.openExternalURL('https://gdevelop.io/download')
+  //                   }
+  //                 >
+  //                   <Mobile />
+  //                 </IconButton>
+  //               ) : (
+  //                 <FlatButton
+  //                   label={<Trans>Get the app</Trans>}
+  //                   onClick={() =>
+  //                     Window.openExternalURL('https://gdevelop.io/download')
+  //                   }
+  //                   leftIcon={<Desktop />}
+  //                 />
+  //               ))}
+  //             <UserChip onOpenProfile={onOpenProfile} />
+  //             {profile && <NotificationChip />}
+  //             {isMobile ? (
+  //               <IconButton size="small" onClick={onOpenLanguageDialog}>
+  //                 <TranslateIcon fontSize="small" />
+  //               </IconButton>
+  //             ) : (
+  //               <TextButton
+  //                 label={i18n.language.toUpperCase()}
+  //                 onClick={onOpenLanguageDialog}
+  //                 icon={<TranslateIcon fontSize="small" />}
+  //               />
+  //             )}
+  //           </LineStackLayout>
+  //         </Column>
+  //       </LineStackLayout>
+  //     )}
+  //   </I18n>
+  // );
 };
