@@ -45,9 +45,9 @@ export type HomeTab =
   | 'get-started'
   | 'create'
   | 'learn'
-  | 'play'
-  | 'shop'
-  | 'team-view';
+  | 'play';
+  // | 'shop'
+  // | 'team-view';
 
 export type GetIconFunction = ({
   color: string,
@@ -78,14 +78,14 @@ const homePageMenuTabs: { [tab: HomeTab]: HomePageMenuTab } = {
       <PickAxeIcon fontSize={fontSize} color={color} />
     ),
   },
-  shop: {
-    label: <Trans>Shop</Trans>,
-    tab: 'shop',
-    id: 'home-shop-tab',
-    getIcon: ({ color, fontSize }) => (
-      <StoreIcon fontSize={fontSize} color={color} />
-    ),
-  },
+  // shop: {
+  //   label: <Trans>Shop</Trans>,
+  //   tab: 'shop',
+  //   id: 'home-shop-tab',
+  //   getIcon: ({ color, fontSize }) => (
+  //     <StoreIcon fontSize={fontSize} color={color} />
+  //   ),
+  // },
   learn: {
     label: <Trans>Learn</Trans>,
     tab: 'learn',
@@ -102,14 +102,14 @@ const homePageMenuTabs: { [tab: HomeTab]: HomePageMenuTab } = {
       <GoogleControllerIcon fontSize={fontSize} color={color} />
     ),
   },
-  'team-view': {
-    label: <Trans>Teach</Trans>,
-    tab: 'team-view',
-    id: 'team-view-tab',
-    getIcon: ({ color, fontSize }) => (
-      <BookLeafIcon fontSize={fontSize} color={color} />
-    ),
-  },
+  // 'team-view': {
+  //   label: <Trans>Teach</Trans>,
+  //   tab: 'team-view',
+  //   id: 'team-view-tab',
+  //   getIcon: ({ color, fontSize }) => (
+  //     <BookLeafIcon fontSize={fontSize} color={color} />
+  //   ),
+  // },
 };
 
 export const getTabsToDisplay = ({
@@ -132,10 +132,10 @@ export const getTabsToDisplay = ({
   const tabs: HomeTab[] = [
     'get-started',
     'create',
-    !shouldHideClassroomTab(limits) && !isNativeMobileApp()
-      ? 'team-view'
-      : null,
-    displayShopTab ? 'shop' : null,
+    // !shouldHideClassroomTab(limits) && !isNativeMobileApp()
+    //   ? 'team-view'
+    //   : null,
+    // displayShopTab ? 'shop' : null,
     'learn',
     displayPlayTab ? 'play' : null,
   ].filter(Boolean);
@@ -178,14 +178,14 @@ export const HomePageMenu = ({
         <Preferences fontSize={fontSize} color={color} />
       ),
     },
-    {
-      label: <Trans>About GDevelop</Trans>,
-      id: 'about-gdevelop',
-      onClick: onOpenAbout,
-      getIcon: ({ color, fontSize }) => (
-        <GDevelopGLogo fontSize={fontSize} color={color} />
-      ),
-    },
+    // {
+    //   label: <Trans>About GDevelop</Trans>,
+    //   id: 'about-gdevelop',
+    //   onClick: onOpenAbout,
+    //   getIcon: ({ color, fontSize }) => (
+    //     <GDevelopGLogo fontSize={fontSize} color={color} />
+    //   ),
+    // },
   ];
 
   return (
